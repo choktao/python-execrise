@@ -1,0 +1,23 @@
+ssdd
+change master to
+master_user='nina',
+master_password='123456',
+master_host='192.168.88.92',
+master_log_file='sql92.000001',
+master_log_pos=156;
+
+/*+ mycat:createdatasource {
+    "name": "dr2",
+    "url": "jdbc:mysql://192.168.88.93:3306",
+    "user":"mmk",
+    "password":"123456"}*/;
+
+/*!mycat:createcluster{
+    "name":"c2",
+    "masters":["dw2"],
+    "replicas":['dr2']
+}*/;
+
+
+主从配置用户：nina
+mycat连接数据库用户：mmk
